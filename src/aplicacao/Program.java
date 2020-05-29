@@ -11,7 +11,7 @@ public class Program {
 		Scanner sc = new Scanner(System.in);
 		
 		String nomeFuncionario;
-		int horasTrabalhadas;
+		int horasTrabalhadas, option;
 		double valorHora;
 		char again;
 		
@@ -36,6 +36,18 @@ public class Program {
 		System.out.print("Digitar outro (S/N)? ");
 		again = sc.next().charAt(0);
 		} while(again != 'N' && again != 'n'); 
+		
+		
+		do {
+		System.out.println();
+		System.out.println("MENU");
+		System.out.println("1 - Total de horas trabalhadas");
+		System.out.println("2 - Custo total");
+		System.out.println("3 - Nome da pessoa que ganhou mais");
+		System.out.println("4 - Sair");
+		System.out.print("Digite uma opção: ");
+		option = sc.nextInt();
+		} while (option != 4);
 		
 		sc.close();
 	}
