@@ -10,13 +10,13 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		String nomeFuncionario;
+		String nomeFuncionario, ganhouMais = "Ninguem";
 		int horasTrabalhadas, option, totalHoras = 0;
-		double valorHora, totalPagamento = 0;
+		double valorHora, totalPagamento = 0, salarioIndividual, primeiroSalario = 0;
 		char again;
 		
 		do {
-		System.out.print("Nome:");
+		System.out.print("Nome: ");
 		nomeFuncionario = sc.next();
 		
 		System.out.print("Horas trabalhadas: ");
@@ -32,6 +32,11 @@ public class Program {
 		if (valorHora <= 0) {
 			System.out.print("Digite um valor positivo para o valor da hora trabalhada: ");
 			valorHora = sc.nextDouble();
+		}
+		salarioIndividual = horasTrabalhadas*valorHora;
+		if (salarioIndividual > primeiroSalario) {
+			ganhouMais = nomeFuncionario;
+			primeiroSalario = salarioIndividual;
 		}
 		totalPagamento = totalPagamento + horasTrabalhadas*valorHora;
 		
@@ -56,7 +61,11 @@ public class Program {
 		}
 		else if (option == 2) {
 			System.out.println();
-			System.out.println("Custo total: R$" + totalPagamento);
+			System.out.println("Custo total: R$ " + totalPagamento);
+		}
+		else if (option == 3) {
+			System.out.println();
+			System.out.println("Pessoa que ganhou mais: " + ganhouMais);
 		}
 		} while (option != 4);
 		
